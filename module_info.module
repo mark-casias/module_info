@@ -1,18 +1,22 @@
 <?php 
 
 /**
- * Invokes all of the callbacks that implement the given info hook and returns a cached
- * array of info.
+ * Invokes all of the callbacks that implement the given info hook and returns a 
+ * cached array of info.
  * 
- * @param string $hook The name of the hook to invoke.  This is probably something you created
- *   and unique to your application.
- * @param array $defaults An array of default values to assign to each info record.
- * @param string $key Optionally, the key of a single item to return.
+ * @param string $hook
+ *   The name of the hook to invoke. Probably something unique to your application.
+ * @param array $defaults
+ *   An array of default values to assign to each info record.
+ * @param string $key
+ *   Optionally, the key of a single item to return.
  * 
- * @return array If $key is specified, returns a single array of info, or false if the 
- *   key did match anything.   Otherwise, returns a keyed array of info, as returned by the
- *   info hooks.  
- *   Each item will contain the following keys, plus any additional keys defined by $defaults:
+ * @return array
+ *   If $key is specified, returns a single array of info, or false if the 
+ *   key did match anything. Otherwise, returns a keyed array of info, as returned 
+ *   by the info hooks.  
+ *   Each item will contain the following keys, plus any additional keys defined
+ *   by $defaults:
  *   - module: The module that defined this item.
  *   - key: The key of the item (should match the array key)
  *   - weight: The weight of the item in relation to others.
@@ -61,10 +65,12 @@ function module_info_invoke_all($hook, $defaults = array(), $key = NULL) {
 }
 
 /**
- * Returns an options list for the given info hook, using the given field as the title.
+ * Return options list for the given info hook, using the given field as the title.
  * 
- * @param array $info The info array, as returned by module_info_invoke_all().
- * @param string $field The name of the key to use as the title for the options list.
+ * @param array $info
+ *   The info array, as returned by module_info_invoke_all().
+ * @param string $field
+ *   The name of the key to use as the title for the options list.
  */
 function module_info_options($info, $field = 'title') {
   $options = array();
@@ -82,8 +88,10 @@ function module_info_options($info, $field = 'title') {
  * Otherwise, a function will be found with the 'base' property or the module name
  * as a prefix and the callback function name appended.
  * 
- * @param array $data A single item from an info array.
- * @param string $callback The name of the function to invoke.  This should either be
+ * @param array $data
+ *   A single item from an info array.
+ * @param string $callback
+ *   The name of the function to invoke.  This should either be
  *   an array key in the info properties, or it should be a valid name appended to 
  *   the base name or module name.
  */
